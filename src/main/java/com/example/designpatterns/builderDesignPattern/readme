@@ -1,0 +1,160 @@
+
+
+/**
+ * Steps
+ * create student class with all the attributes
+ * create Helper class / Builder class. Now create it in seperate class / file
+ * Create/ Copy the same attributes as we have in the student class
+ * Generate the getter and setter method
+ * Client : Create the builder object , set the values using setter methods
+ * Builder builder = new Builder();
+ * builder.setName("Krithi");
+ * builder.setAge(23);
+ * builder.setBatch("April2023 Morning batch");
+ * builder.setGradYear(2022) ;
+ * builder.setPhoneNumber("12344234");
+ * builder.setUniversityName("Java University");
+ * Student student = new Student(builder);
+ * <p>
+ * Returns the student object
+ * <p>
+ * <p>
+ * <p>
+ * Version 1
+ * public class Student {
+ * String name ;
+ * int age;
+ * String batch;
+ * String universityName;
+ * double psp;
+ * int gradYear;
+ * String phoneNumber;
+ * <p>
+ * Student(Builder builder){
+ * <p>
+ * this.name = builder.name;
+ * this.age = builder.age;
+ * this.batch = builder.batch;
+ * this.universityName = builder.universityName;
+ * this.psp=builder.psp;
+ * this.gradYear = builder.gradYear;
+ * this.phoneNumber = builder.phoneNumber;
+ * }
+ * <p>
+ * }
+ * package com.example.designpatterns.builderDesignPattern;
+ * <p>
+ * public class Builder {
+ * String name ;
+ * int age;
+ * <p>
+ * public String getName() {
+ * return name;
+ * }
+ * <p>
+ * public void setName(String name) {
+ * this.name = name;
+ * }
+ * <p>
+ * public int getAge() {
+ * return age;
+ * }
+ * <p>
+ * public void setAge(int age) {
+ * this.age = age;
+ * }
+ * <p>
+ * public String getBatch() {
+ * return batch;
+ * }
+ * <p>
+ * public void setBatch(String batch) {
+ * this.batch = batch;
+ * }
+ * <p>
+ * public String getUniversityName() {
+ * return universityName;
+ * }
+ * <p>
+ * public void setUniversityName(String universityName) {
+ * this.universityName = universityName;
+ * }
+ * <p>
+ * public double getPsp() {
+ * return psp;
+ * }
+ * <p>
+ * public void setPsp(double psp) {
+ * this.psp = psp;
+ * }
+ * <p>
+ * public int getGradYear() {
+ * return gradYear;
+ * }
+ * <p>
+ * public void setGradYear(int gradYear) {
+ * this.gradYear = gradYear;
+ * }
+ * <p>
+ * public String getPhoneNumber() {
+ * return phoneNumber;
+ * }
+ * <p>
+ * public void setPhoneNumber(String phoneNumber) {
+ * this.phoneNumber = phoneNumber;
+ * }
+ * <p>
+ * String batch;
+ * String universityName;
+ * double psp;
+ * int gradYear;
+ * String phoneNumber;
+ * }
+ * <p>
+ * <p>
+ * Client
+ * package com.example.designpatterns.builderDesignPattern;
+ * <p>
+ * public class Client {
+ * public static void main(String args[]){
+ * Builder builder = new Builder();
+ * builder.setName("Krithi");
+ * builder.setAge(23);
+ * builder.setBatch("April2023 Morning batch");
+ * builder.setGradYear(2022) ;
+ * builder.setPhoneNumber("12344234");
+ * builder.setUniversityName("Java University");
+ * Student student = new Student(builder);
+ * <p>
+ * }
+ * }
+ * <p>
+ * <p>
+ * <p>
+ * Version 2
+ * Include the validation in the constructor
+ * *         Now we can include the validation in the student constructor. If the validation passed, We will c
+ * *         get create the Student object.
+ * <p>
+ * Student(Builder builder){
+ * if(builder.gradYear<=2015){
+ * throw new RuntimeException("Grad Year is less than 2015");
+ * }
+ * this.name = builder.name;
+ * this.age = builder.age;
+ * this.batch = builder.batch;
+ * this.universityName = builder.universityName;
+ * this.psp=builder.psp;
+ * this.gradYear = builder.gradYear;
+ * this.phoneNumber = builder.phoneNumber;
+ * }
+ * <p>
+ * <p>
+ * <p>
+ * V3 . v2 is good, but we have different classes for Builder and Student
+ * Creating the builder and passing it on to the student object can be improvised
+ * From student we should be able to create builder.
+ * That is possible only after we create the object,
+ * But builder object has to validate the atts before the object is created.
+ * So only way is to create Builder object as static inside student
+ */
