@@ -8,6 +8,6 @@ public class Client {
 
         DatabaseConnection dbc1 = DatabaseConnection.getInstance();
         System.out.println("Debug");
-        // You can see the dbc and dbc1 creates the same object 
+        // You can see the dbc and dbc1 creates the same object
     }
 }
